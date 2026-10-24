@@ -1,5 +1,9 @@
 {
-  "memory_lines": [],
-  "relationships": {},
+  "memory_lines": [
+    "Suara kokok ayam jantan selalu mengagetkan dahan sarangku saat fajar menyingsing."
+  ],
+  "relationships": {
+    "ayam-jantan": "Kawan yang berisik tetapi rajin mengawasi lumbung."
+  },
   "known_topics": []
 }
