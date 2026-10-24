@@ -1,5 +1,9 @@
 {
-  "memory_lines": [],
-  "relationships": {},
+  "memory_lines": [
+    "Mengingatkan ayam jantan agar tidak berisik saat waktu tidur siang."
+  ],
+  "relationships": {
+    "ayam-jantan": "Sangat rajin tetapi terlalu ribut saat fajar."
+  },
   "known_topics": []
 }
