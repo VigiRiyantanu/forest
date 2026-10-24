@@ -134,6 +134,8 @@ def run_tick(
     repo_root: Optional[str] = None,
     force: bool = False,
     override_config: Optional[Dict[str, Any]] = None,
+    direct_payload: Optional[Dict[str, Any]] = None,
+    print_context: bool = False,
 ) -> bool:
     """Execute one full turn of the animal village."""
     root = repo_root or os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
@@ -211,37 +213,31 @@ def run_tick(
         interactions_used = cycle_info.get("interactions_used", {}).get(current_slug, 0)
         interactions_limit = int(config.get("interactions_per_cycle", 1))
 
-        # Agent execution with retries
-        max_retries = int(config.get("llm_max_retries", 2))
+        # If requested to print context for human or AI agent roleplay
+        if print_context:
+            context_summary = {
+                "turn": counter,
+                "animal": animal,
+                "slot": slot,
+                "day_type": day_type,
+                "interactions_used": interactions_used,
+                "interactions_limit": interactions_limit,
+                "can_interact": interactions_used < interactions_limit,
+                "eligible_targets": eligible_targets,
+                "memory": animal_memory,
+                "recent_chat": chat_lines[-10:],
+                "recent_knowledge": knowledge_list[-8:],
+            }
+            print(json.dumps(context_summary, indent=2, ensure_ascii=False))
+            return True
+
         turn_data = None
         validation_errors: List[str] = []
-        error_feedback: Optional[str] = None
 
-        for attempt in range(max_retries + 1):
-            agent_result, agent_err = run_agent_turn(
-                animal=animal,
-                slot=slot,
-                day_type=day_type,
-                memory_data=animal_memory,
-                recent_chat_lines=chat_lines,
-                recent_knowledge=knowledge_list,
-                cycle_interactions_used=interactions_used,
-                cycle_interactions_limit=interactions_limit,
-                eligible_targets=eligible_targets,
-                config=config,
-                prompts_dir=prompts_dir,
-                counter=counter,
-                error_feedback=error_feedback,
-            )
-
-            if agent_err:
-                validation_errors = [agent_err]
-                error_feedback = agent_err
-                continue
-
-            # Validate all hard rules
+        # If direct payload is supplied (e.g. from Antigravity roleplay)
+        if direct_payload is not None:
             is_valid, v_errors = validate_turn(
-                turn_data=agent_result,
+                turn_data=direct_payload,
                 current_slug=current_slug,
                 cast=cast,
                 state=state,
@@ -249,16 +245,57 @@ def run_tick(
                 chat_history=chat_lines,
                 knowledge_list=knowledge_list,
             )
-
             if is_valid:
-                turn_data = agent_result
-                break
+                turn_data = direct_payload
             else:
                 validation_errors = v_errors
-                error_feedback = "; ".join(v_errors)
+        else:
+            # Agent execution with retries
+            max_retries = int(config.get("llm_max_retries", 2))
+            error_feedback: Optional[str] = None
+
+            for attempt in range(max_retries + 1):
+                agent_result, agent_err = run_agent_turn(
+                    animal=animal,
+                    slot=slot,
+                    day_type=day_type,
+                    memory_data=animal_memory,
+                    recent_chat_lines=chat_lines,
+                    recent_knowledge=knowledge_list,
+                    cycle_interactions_used=interactions_used,
+                    cycle_interactions_limit=interactions_limit,
+                    eligible_targets=eligible_targets,
+                    config=config,
+                    prompts_dir=prompts_dir,
+                    counter=counter,
+                    error_feedback=error_feedback,
+                )
+
+                if agent_err:
+                    validation_errors = [agent_err]
+                    error_feedback = agent_err
+                    continue
+
+                # Validate all hard rules
+                is_valid, v_errors = validate_turn(
+                    turn_data=agent_result,
+                    current_slug=current_slug,
+                    cast=cast,
+                    state=state,
+                    config=config,
+                    chat_history=chat_lines,
+                    knowledge_list=knowledge_list,
+                )
+
+                if is_valid:
+                    turn_data = agent_result
+                    break
+                else:
+                    validation_errors = v_errors
+                    error_feedback = "; ".join(v_errors)
 
         if turn_data is None:
-            err_msg = f"Turn validation failed after {max_retries} retries for {current_slug} (turn {counter}): {validation_errors}"
+            err_msg = f"Turn validation failed for {current_slug} (turn {counter}): {validation_errors}"
             log_error(root, err_msg)
             print(f"[ERROR] {err_msg}")
             return False
@@ -425,9 +462,24 @@ def main():
     parser = argparse.ArgumentParser(description="Animal Playground Tick Runner")
     parser.add_argument("--force", action="store_true", help="Force turn execution even if not due")
     parser.add_argument("--repo-root", type=str, default=None, help="Root directory of repository")
+    parser.add_argument("--context", action="store_true", help="Print current turn context JSON")
+    parser.add_argument("--payload", type=str, default=None, help="Direct JSON payload string for turn")
+    parser.add_argument("--payload-file", type=str, default=None, help="File containing direct JSON payload")
     args = parser.parse_args()
 
-    success = run_tick(repo_root=args.repo_root, force=args.force)
+    payload_data = None
+    if args.payload:
+        payload_data = json.loads(args.payload)
+    elif args.payload_file:
+        with open(args.payload_file, "r", encoding="utf-8") as f:
+            payload_data = json.load(f)
+
+    success = run_tick(
+        repo_root=args.repo_root,
+        force=args.force,
+        direct_payload=payload_data,
+        print_context=args.context,
+    )
     sys.exit(0 if success else 1)
 
 
