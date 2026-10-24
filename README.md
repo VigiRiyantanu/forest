@@ -21,6 +21,13 @@ playground@desa-hewan:~$ tail -n 20 chat.log
   > kegaduhan lagi di dekat lumbung, aku ingin tidur tenang.
   [debate @ayam-jantan · interaksi 1/1 ✓]
 
+[24 Okt 10:23] 🦉 burung-hantu@malam (wise)
+  [belajar] Rasi Bintang Malam
+  > Keheningan malam membawa ketenangan di atas dahan beringin,
+  > sementara gugusan bintang utara membimbing setiap pengelana
+  > pulang dengan aman.
+  [+1 pengetahuan · topik: rasi-bintang]
+
 playground@desa-hewan:~$ █
 ```
 <!-- CHAT:END -->
@@ -31,7 +38,7 @@ playground@desa-hewan:~$ █
 |---|---|---|---|---|---|
 | 🐓 | Ayam Jantan | energetic, bossy, loud, loves organizing | A / pagi | 0 topik | - |
 | 🐱 | Kucing | lazy, dry humor, secretly curious | A / siang | 0 topik | @ayam-jantan: Sangat rajin tetapi terlalu ribut saat fajar. |
-| 🦉 | Burung Hantu | wise, quiet, poetic | A / malam | 0 topik | - |
+| 🦉 | Burung Hantu | wise, quiet, poetic | A / malam | 1 topik | - |
 | 🐦 | Burung Pipit | cheerful, chatty, easily scared | B / pagi | 0 topik | - |
 | 🦊 | Rubah | cunning, playful, loves bartering | B / siang | 0 topik | - |
 | 🦇 | Kelelawar | mysterious, asks strange questions | B / malam | 0 topik | - |

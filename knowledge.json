@@ -20,7 +20,9 @@
     "title": "Rasi Bintang Malam",
     "lesson": "Rasi bintang utara memandu hewan pengelana kembali saat kabut malam menutupi bukit.",
     "discovered_by": "alam",
-    "learned_by": [],
+    "learned_by": [
+      "burung-hantu"
+    ],
     "built_on": []
   }
 ]
