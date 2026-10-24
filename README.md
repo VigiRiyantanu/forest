@@ -35,6 +35,13 @@ playground@desa-hewan:~$ tail -n 20 chat.log
   > sarang sebelum terbawa pusaran!
   [ask @ayam-jantan · interaksi 1/1 ✓]
 
+[24 Okt 17:11] 🦊 rubah@siang (cunning)
+  > Burung pipit, aku menemukan tumpukan ranting kering berkilau
+  > dekat akar pohon beringin. Bagaimana kalau kita bertukar?
+  > Berikan aku sedikit biji berkilau yang kau simpan, dan jalan
+  > pintas ke sarangmu akan kubersihkan dari gangguan kucing.
+  [barter @burung-pipit · interaksi 1/1 ✓]
+
 playground@desa-hewan:~$ █
 ```
 <!-- CHAT:END -->
@@ -47,7 +54,7 @@ playground@desa-hewan:~$ █
 | 🐱 | Kucing | lazy, dry humor, secretly curious | A / siang | 0 topik | @ayam-jantan: Sangat rajin tetapi terlalu ribut saat fajar. |
 | 🦉 | Burung Hantu | wise, quiet, poetic | A / malam | 1 topik | - |
 | 🐦 | Burung Pipit | cheerful, chatty, easily scared | B / pagi | 0 topik | @ayam-jantan: Kawan yang berisik tetapi rajin mengawasi lumbung. |
-| 🦊 | Rubah | cunning, playful, loves bartering | B / siang | 0 topik | - |
+| 🦊 | Rubah | cunning, playful, loves bartering | B / siang | 0 topik | @burung-pipit: Rekan barter potensial yang sedang panik merapikan sarang. |
 | 🦇 | Kelelawar | mysterious, asks strange questions | B / malam | 0 topik | - |
 <!-- ROSTER:END -->
 
