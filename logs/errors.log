@@ -1,0 +1,1 @@
+[2026-10-24T09:53:35.131026+00:00] Turn validation failed after 2 retries for ayam-jantan (turn 0): ['Failed to parse LLM response as JSON: Expecting value: line 1 column 1 (char 0) | Raw: MALFORMED_NON_JSON_RESPONSE']

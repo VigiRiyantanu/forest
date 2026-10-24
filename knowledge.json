@@ -1,0 +1,26 @@
+[
+  {
+    "id": "pohon-beringin",
+    "title": "Pohon Beringin Tua",
+    "lesson": "Akar beringin tua menjaga tanah dan mata air desa tetap mengalir jernih.",
+    "discovered_by": "alam",
+    "learned_by": [],
+    "built_on": []
+  },
+  {
+    "id": "aliran-sungai",
+    "title": "Aliran Sungai Hulu",
+    "lesson": "Bebatuan licin di aliran hulu sungai menjadi penanda arus bawah yang deras.",
+    "discovered_by": "alam",
+    "learned_by": [],
+    "built_on": []
+  },
+  {
+    "id": "rasi-bintang",
+    "title": "Rasi Bintang Malam",
+    "lesson": "Rasi bintang utara memandu hewan pengelana kembali saat kabut malam menutupi bukit.",
+    "discovered_by": "alam",
+    "learned_by": [],
+    "built_on": []
+  }
+]

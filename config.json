@@ -1,0 +1,21 @@
+{
+  "mode": "test",
+  "interval_minutes": {
+    "test": 1,
+    "prod": 480
+  },
+  "tolerance_minutes": 10,
+  "max_commits_test": 12,
+  "dry_run": false,
+  "push": true,
+  "timezone": "Asia/Jakarta",
+  "chat_language": "id",
+  "interactions_per_cycle": 1,
+  "max_words_interaction": 50,
+  "max_words_free": 120,
+  "readme_chat_tail": 20,
+  "similarity_threshold": 0.6,
+  "knowledge_mode": "fiction",
+  "llm_timeout_seconds": 5,
+  "llm_max_retries": 2
+}

@@ -1,0 +1,52 @@
+name: Animal Village Autonomous Tick
+
+on:
+  schedule:
+    # 00:00, 08:00, 16:00 WIB (UTC+7) -> 17:00, 01:00, 09:00 UTC
+    - cron: "0 17,1,9 * * *"
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "Force execution regardless of schedule/tolerance check"
+        type: boolean
+        default: false
+
+concurrency:
+  group: "animal-tick"
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  tick:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Configure Git identity for fallback
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Execute Tick
+        env:
+          LLM_PROVIDER: ${{ secrets.LLM_PROVIDER || 'gemini' }}
+          LLM_MODEL: ${{ secrets.LLM_MODEL || '' }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          if [ "${{ github.event.inputs.force }}" = "true" ]; then
+            python -m src.tick --force
+          else
+            python -m src.tick
+          fi

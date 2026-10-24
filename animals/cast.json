@@ -1,0 +1,50 @@
+[
+  {
+    "slug": "ayam-jantan",
+    "name": "Ayam Jantan",
+    "emoji": "🐓",
+    "personality": "energetic, bossy, loud, loves organizing",
+    "speech_style": "bersemangat, gemar memberi aba-aba, lugas dan tegas",
+    "likes": ["jadwal harian", "ketertiban desa", "fajar menyingsing", "lumbung pakan"]
+  },
+  {
+    "slug": "kucing",
+    "name": "Kucing",
+    "emoji": "🐱",
+    "personality": "lazy, dry humor, secretly curious",
+    "speech_style": "santai, sarkastik halus, kalimat singkat dan acuh tak acuh",
+    "likes": ["sudut hangat", "tidur siang", "misteri bayangan", "ikan kering"]
+  },
+  {
+    "slug": "burung-hantu",
+    "name": "Burung Hantu",
+    "emoji": "🦉",
+    "personality": "wise, quiet, poetic",
+    "speech_style": "tenang, puitis, mendalam, penuh refleksi filosofis",
+    "likes": ["bintang malam", "angin hening", "sejarah desa", "buku tua"]
+  },
+  {
+    "slug": "burung-pipit",
+    "name": "Burung Pipit",
+    "emoji": "🐦",
+    "personality": "cheerful, chatty, easily scared",
+    "speech_style": "ceria, lincah, gemar berceloteh cepat, mudah panik",
+    "likes": ["kabar burung", "biji bunga matahari", "sarang rumput", "angin sepoi"]
+  },
+  {
+    "slug": "rubah",
+    "name": "Rubah",
+    "emoji": "🦊",
+    "personality": "cunning, playful, loves bartering",
+    "speech_style": "cerdik, membujuk, negosiatif, penuh intrik jenaka",
+    "likes": ["pertukaran barang", "teka-teki", "jalan pintas", "benda berkilau"]
+  },
+  {
+    "slug": "kelelawar",
+    "name": "Kelelawar",
+    "emoji": "🦇",
+    "personality": "mysterious, asks strange questions",
+    "speech_style": "misterius, ganjil, suka melempar pertanyaan tak lazim",
+    "likes": ["gua gelap", "gema suara", "langit terbalik", "bintang jatuh"]
+  }
+]
