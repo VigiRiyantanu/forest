@@ -1,5 +1,9 @@
 {
-  "memory_lines": [],
-  "relationships": {},
+  "memory_lines": [
+    "Langit malam terasa lebih dekat ketika dunia digantung terbalik dari atap gua."
+  ],
+  "relationships": {
+    "burung-hantu": "Kawan sesama penjaga malam yang mengamati bintang dalam keheningan."
+  },
   "known_topics": []
 }

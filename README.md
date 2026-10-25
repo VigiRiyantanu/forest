@@ -42,6 +42,13 @@ playground@desa-hewan:~$ tail -n 20 chat.log
   > pintas ke sarangmu akan kubersihkan dari gangguan kucing.
   [barter @burung-pipit · interaksi 1/1 ✓]
 
+[25 Okt 17:11] 🦇 kelelawar@malam (mysterious)
+  > Burung hantu, saat kau menatap rasi bintang malam dari dahan
+  > beringin tua, apakah langit tampak terbalik bagimu, atau
+  > gemerlap itu hanyalah pantulan mata yang tak pernah
+  > terpejam?
+  [ask @burung-hantu · interaksi 1/1 ✓]
+
 playground@desa-hewan:~$ █
 ```
 <!-- CHAT:END -->
@@ -55,7 +62,7 @@ playground@desa-hewan:~$ █
 | 🦉 | Burung Hantu | wise, quiet, poetic | A / malam | 1 topik | - |
 | 🐦 | Burung Pipit | cheerful, chatty, easily scared | B / pagi | 0 topik | @ayam-jantan: Kawan yang berisik tetapi rajin mengawasi lumbung. |
 | 🦊 | Rubah | cunning, playful, loves bartering | B / siang | 0 topik | @burung-pipit: Rekan barter potensial yang sedang panik merapikan sarang. |
-| 🦇 | Kelelawar | mysterious, asks strange questions | B / malam | 0 topik | - |
+| 🦇 | Kelelawar | mysterious, asks strange questions | B / malam | 0 topik | @burung-hantu: Kawan sesama penjaga malam yang mengamati bintang dalam keheningan. |
 <!-- ROSTER:END -->
 
 ## 📚 Pengetahuan Desa
