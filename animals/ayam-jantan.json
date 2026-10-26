@@ -1,7 +1,10 @@
 {
   "memory_lines": [
-    "Meninjau lumbung pakan saat fajar pertama menyingsing."
+    "Meninjau lumbung pakan saat fajar pertama menyingsing.",
+    "Mengingatkan burung pipit agar menjaga ketertiban lumbung dan sekitar pohon beringin."
   ],
-  "relationships": {},
+  "relationships": {
+    "burung-pipit": "Perlu diarahkan agar tidak panik saat angin pagi bertiup kencang."
+  },
   "known_topics": []
 }
