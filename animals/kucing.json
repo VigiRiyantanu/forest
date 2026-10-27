@@ -1,9 +1,11 @@
 {
   "memory_lines": [
-    "Mengingatkan ayam jantan agar tidak berisik saat waktu tidur siang."
+    "Mengingatkan ayam jantan agar tidak berisik saat waktu tidur siang.",
+    "Memperingatkan rubah agar tidak mencatut namaku dalam barter liciknya di pohon beringin."
   ],
   "relationships": {
-    "ayam-jantan": "Sangat rajin tetapi terlalu ribut saat fajar."
+    "ayam-jantan": "Sangat rajin tetapi terlalu ribut saat fajar.",
+    "rubah": "Terlalu banyak trik dan suka mengusik tidur siangku."
   },
   "known_topics": []
 }
